@@ -1,0 +1,40 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="lombok" value="Data"/>
+        </plugin>
+
+        <!-- 必须 映射数据库配置-->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/test"
+                userId="root"
+                password="123456"/>
+
+        <!-- 生成实体类对象，放在工程src/main/java层级的com.krupp.generator包下  targetPackage不存在会自动创建，targetProject不存在则不自动创建，所以必须指明已存在的路径 -->
+        <javaModelGenerator targetPackage="com.krupp.generator.entity" targetProject="src/main/java">
+        </javaModelGenerator>
+
+        <!-- 生成mapper xml文件，并放到resources下的mapper文件夹下 -->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
+        </sqlMapGenerator>
+
+        <!-- 生成dao接口，放在com.krupp.generator.mapper包下-->
+        <javaClientGenerator targetPackage="com.krupp.generator.mapper" targetProject="src/main/java" type="XMLMAPPER">
+        </javaClientGenerator>
+
+        <table tableName="bs_street" domainObjectName="BsStreet">
+        </table>
+    </context>
+</generatorConfiguration>
+
