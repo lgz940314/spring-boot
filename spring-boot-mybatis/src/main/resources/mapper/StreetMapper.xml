@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.krupp.generator.mapper.StreetMapper">
+  <resultMap id="BaseResultMap" type="com.krupp.mybatis.entity.Street">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="STREET_ID" jdbcType="INTEGER" property="streetId" />
+    <result column="STREET_CODE" jdbcType="VARCHAR" property="streetCode" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="STREET_NAME" jdbcType="VARCHAR" property="streetName" />
+    <result column="SHORT_NAME" jdbcType="VARCHAR" property="shortName" />
+    <result column="LNG" jdbcType="VARCHAR" property="lng" />
+    <result column="LAT" jdbcType="VARCHAR" property="lat" />
+    <result column="SORT" jdbcType="INTEGER" property="sort" />
+    <result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="DATA_STATE" jdbcType="INTEGER" property="dataState" />
+    <result column="TENANT_CODE" jdbcType="VARCHAR" property="tenantCode" />
+  </resultMap>
+</mapper>
