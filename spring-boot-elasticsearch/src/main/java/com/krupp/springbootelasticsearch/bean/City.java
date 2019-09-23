@@ -3,6 +3,8 @@ package com.krupp.springbootelasticsearch.bean;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -23,12 +25,14 @@ public class City {
      * 市代码
      */
     @Column(name = "CITY_CODE")
+    @Field(type= FieldType.Text,fielddata=true)
     private String cityCode;
 
     /**
      * 市名称
      */
     @Column(name = "CITY_NAME")
+    @Field(type= FieldType.Text,fielddata=true)
     private String cityName;
 
     /**

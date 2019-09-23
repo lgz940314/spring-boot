@@ -9,4 +9,5 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  * @Date: 2019/9/20
  */
 public interface CityRepository extends ElasticsearchRepository<City, Integer> {
+
 }
