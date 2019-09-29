@@ -1,0 +1,2 @@
+
+WebMvcConfigurerAdapter类被弃用后的两种选择
