@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.krupp</groupId>
-    <artifactId>hupool</artifactId>
+    <artifactId>hutool</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-hupool</name>
+    <name>spring-boot-hutool</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

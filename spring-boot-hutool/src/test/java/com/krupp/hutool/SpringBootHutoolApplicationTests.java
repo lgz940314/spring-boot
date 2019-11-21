@@ -1,11 +1,12 @@
-package com.krupp.hupool;
+package com.krupp.hutool;
 
 
 import cn.hutool.core.thread.ThreadUtil;
+import cn.hutool.crypto.SecureUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.krupp.hupool.bean.Book;
-import com.krupp.hupool.test.SnowflakeIdWorker;
+import com.krupp.hutool.bean.Book;
+import com.krupp.hutool.test.SnowflakeIdWorker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBootHupoolApplicationTests {
+public class SpringBootHutoolApplicationTests {
 
     @Test
     public void contextLoads() {
@@ -86,22 +87,21 @@ public class SpringBootHupoolApplicationTests {
     @Test
     public void test(){
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
-       /* for (int i = 0; i < 60000; i++) {
-            long id = idWorker.nextId();
-            //System.out.println(Long.toBinaryString(id));
-            System.out.println(i+"============================>"+id);
-        }*/
         ExecutorService executorService = ThreadUtil.newExecutor(5);
         for (int i = 1; i <= 60000; i++) {
+            int sum = (int) Math.sqrt(i * i - 1 + i);
             long id = idWorker.nextId();
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println(Thread.currentThread().getName()+"------------"+id);
+                    System.out.println(Thread.currentThread().getName()+"========================>"+sum+"------------"+id);
                 }
-                Integer i =null;
             });
         }
+    }
+
+    @Test
+    public void test2(){
     }
 
 }

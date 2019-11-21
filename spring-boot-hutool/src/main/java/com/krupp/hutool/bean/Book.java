@@ -1,4 +1,4 @@
-package com.krupp.hupool.bean;
+package com.krupp.hutool.bean;
 
 /**
  * @Author: liuguangzheng   rrefe@163.com

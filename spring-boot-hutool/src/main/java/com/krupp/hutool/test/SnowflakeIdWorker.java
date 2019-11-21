@@ -1,4 +1,4 @@
-package com.krupp.hupool.test;
+package com.krupp.hutool.test;
 
 /**
  * @Author: liuguangzheng   rrefe@163.com
