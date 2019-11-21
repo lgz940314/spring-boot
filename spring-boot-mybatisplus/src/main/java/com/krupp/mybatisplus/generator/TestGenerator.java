@@ -2,16 +2,12 @@ package com.krupp.mybatisplus.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author: liuguangzheng   rrefe@163.com
@@ -22,9 +18,10 @@ public class TestGenerator {
     public static void main(String[] args) {
         //1.全局配置
         GlobalConfig config = new GlobalConfig();
+        String projectPath = System.getProperty("user.dir");
         config.setActiveRecord(true)//是否支持AR模式
                 .setAuthor("liuguanzheng")//设置作者
-                .setOutputDir("E:\\Java文件\\mp04\\src\\main\\java")//生成路径
+                .setOutputDir(projectPath + "\\src\\main\\java")//生成路径
                 .setFileOverride(true)//文件覆盖
                 .setIdType(IdType.AUTO) //主键策略
                 .setServiceName("%sService")//设置生成的service接口的名字的首字母是否为I 如IEmployeeService

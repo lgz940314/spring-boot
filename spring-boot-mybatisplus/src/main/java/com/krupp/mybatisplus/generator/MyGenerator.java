@@ -26,8 +26,9 @@ public class MyGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
         //生成代碼在哪個文件夾下
-        gc.setOutputDir(projectPath + "/src/main/java");
+        gc.setOutputDir(projectPath + "\\spring-boot-mybatisplus\\src\\main\\java");
         //生成代碼的作者是誰
         gc.setAuthor("liuguangzheng");
         gc.setOpen(false);

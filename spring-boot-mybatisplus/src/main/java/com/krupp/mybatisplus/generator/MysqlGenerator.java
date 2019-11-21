@@ -25,17 +25,17 @@ public class MysqlGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/src/main/java/");
+        gc.setOutputDir(projectPath + "\\spring-boot-mybatisplus\\src\\main\\java");
         gc.setAuthor("liuguangzheng");
         gc.setOpen(false);
         gc.setBaseColumnList(true);                //开启 baseColumnList 默认false
         gc.setBaseResultMap(true);                //开启 BaseResultMap 默认false
-        gc.setEntityName("%sEntity");            //实体命名方式  默认值：null 例如：%sEntity 生成 UserEntity
-        gc.setMapperName("%sMapper");            //mapper 命名方式 默认值：null 例如：%sDao 生成 UserDao
-        gc.setXmlName("%sMapper");                //Mapper xml 命名方式   默认值：null 例如：%sDao 生成 UserDao.xml
-        gc.setServiceName("%sService");            //service 命名方式   默认值：null 例如：%sBusiness 生成 UserBusiness
-        gc.setServiceImplName("%sServiceImpl");    //service impl 命名方式  默认值：null 例如：%sBusinessImpl 生成 UserBusinessImpl
-        gc.setControllerName("%sController");    //controller 命名方式    默认值：null 例如：%sAction 生成 UserAction
+        gc.setEntityName("%sEntity");            //实体命名方式  默认值：null 例如：%sEntity 生成 TSysUserEntity
+        gc.setMapperName("%sMapper");            //mapper 命名方式 默认值：null 例如：%sDao 生成 TSysUserDao
+        gc.setXmlName("%sMapper");                //Mapper xml 命名方式   默认值：null 例如：%sDao 生成 TSysUserDao.xml
+        gc.setServiceName("%sService");            //service 命名方式   默认值：null 例如：%sBusiness 生成 TSysUserBusiness
+        gc.setServiceImplName("%sServiceImpl");    //service impl 命名方式  默认值：null 例如：%sBusinessImpl 生成 TSysUserBusinessImpl
+        gc.setControllerName("%sController");    //controller 命名方式    默认值：null 例如：%sAction 生成 TSysUserAction
         gc.setFileOverride(false);
         mpg.setGlobalConfig(gc);
 
