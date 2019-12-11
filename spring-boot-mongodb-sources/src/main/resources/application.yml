@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      #自定义数据库名称1
+      primary:
+        uri: mongodb://localhost:27017/primary
+      #自定义数据库名称2
+      secondary:
+        uri: mongodb://localhost:27017/secondary
