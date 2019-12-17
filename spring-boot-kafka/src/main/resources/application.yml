@@ -2,7 +2,7 @@ spring:
 #============== kafka ===================
   kafka:
     # 指定kafka server的地址，集群配多个，中间，逗号隔开
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: 106.13.170.34:9092
 #=============== provider  =======================
     producer:
       #procedure要求leader在考虑完成请求之前收到的确认数，用于控制发送记录在服务端的持久化，其值可以为如下：
