@@ -1,0 +1,16 @@
+server:
+  port: 9090
+swagger:
+  enable: true
+  title: ElasticSearch-demo
+  description:
+  serviceUrl: http://localhost:9090/
+  version: 1.0.0
+  controllers: com.krupp.rest.person.controller
+
+elasticsearch:
+  user:
+  password:
+  host: localhost
+  port: 9200
+
