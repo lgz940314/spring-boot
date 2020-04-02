@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.krupp.rest.person.model.Person;
 import com.krupp.rest.person.model.SearchParam;
 import com.krupp.rest.person.service.PersonService;
+import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.util.EntityUtils;
 import org.elasticsearch.client.Request;
@@ -73,7 +74,7 @@ public class PersonServiceImpl implements PersonService {
             Request request = new Request("POST", body);
             JSONObject jsonObject = (JSONObject) JSONObject.toJSON(person);
             //设置请求体并指定ContentType和编码格式
-            request.setEntity(new NStringEntity(jsonObject.toString(), "UTF-8"));
+            request.setEntity(new NStringEntity(jsonObject.toString(), ContentType.APPLICATION_JSON));
             Response response = client.performRequest(request);
             //获取响应体
             responseBody = EntityUtils.toString(response.getEntity());
