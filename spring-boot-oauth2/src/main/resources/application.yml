@@ -1,0 +1,21 @@
+
+spring:
+  datasource:
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 5
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.13.170.34:3306/platform_base?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 12315
+    initialization-mode: always
+  mvc:
+    servlet:
+      load-on-startup: 1
+server:
+  port: 8080
+security:
+  oauth2:
+    authorization:
+      check-token-access: true

@@ -1,0 +1,28 @@
+
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/shiro?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
+# 配置用户名和密码
+  security.user.name: user
+  security.user.password: 1234
+
+
+# mybatis 相关配置
+mybatis:
+  # 指定 sql xml 文件的位置
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    # 当没有为参数提供特定的 JDBC 类型时，为空值指定 JDBC 类型。
+    # oracle 数据库建议配置为 JdbcType.NULL, 默认是 Other
+    jdbc-type-for-null: 'null'
+    # 是否打印 sql 语句 调试的时候可以开启
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
