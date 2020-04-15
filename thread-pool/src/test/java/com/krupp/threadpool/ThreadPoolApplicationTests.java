@@ -15,6 +15,8 @@ public class ThreadPoolApplicationTests {
 
     @Test
     public void contextLoads() {
+        Thread thread = new Thread();
+        thread.start();
     }
 
     @Test
@@ -55,7 +57,9 @@ public class ThreadPoolApplicationTests {
             executor.execute(task);
         }
 
-        System.in.read(); //阻塞主线程
+        System.out.println("开始阻塞主线程");
+        //System.in.read(); //阻塞主线程
+        System.out.println("结束阻塞主线程");
     }
 
     static class NameTreadFactory implements ThreadFactory {
@@ -85,7 +89,7 @@ public class ThreadPoolApplicationTests {
     }
 
     static class MyTask implements Runnable {
-        private String name;
+        private final String name;
 
         public MyTask(String name) {
             this.name = name;
