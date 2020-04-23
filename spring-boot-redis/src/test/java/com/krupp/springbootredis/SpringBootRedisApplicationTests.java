@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
@@ -21,6 +23,9 @@ public class SpringBootRedisApplicationTests {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+   /* // 线程池
+    public static ;*/
 
     @Test
     public void contextLoads() {
@@ -47,6 +52,7 @@ public class SpringBootRedisApplicationTests {
      * @param value 当前时间+超时时间
      * @return
      */
+    @Test
     public boolean lock(String key, String value) {
         // 如果键不存在则新增,存在则不改变已经有的值。
         if (redisTemplate.opsForValue().setIfAbsent(key, value)) {
@@ -71,6 +77,7 @@ public class SpringBootRedisApplicationTests {
      * @param key
      * @param value
      */
+    @Test
     public void unlock(String key, String value) {
         try {
             String currentValue = stringRedisTemplate.opsForValue().get(key);
@@ -82,5 +89,34 @@ public class SpringBootRedisApplicationTests {
         }
     }
 
+    @Test
+    public void demo(String key, String value) {
+        //乐观锁
+        redisTemplate.watch(key);
+        //开启事务
+        redisTemplate.multi();
+        //插入数据
+        redisTemplate.opsForValue().set(key, value);
+        //批处理
+        redisTemplate.exec();
+
+    }
+
+    @Test
+    public void ceshi() {
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                10, 100, 10, TimeUnit.SECONDS,
+                new LinkedBlockingDeque<>()
+        );
+        //存产品id和数量
+        stringRedisTemplate.opsForValue().set("kill_num", "50");
+        //清空抢到人的信息
+        stringRedisTemplate.delete("kill_list");
+        for (int i = 0; i < 1000; i++) {
+            pool.execute(new KillTask());
+        }
+    }
+
 
 }
+
